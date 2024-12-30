@@ -6,12 +6,9 @@
         <title> <%= title %> </title>
     </head>
     <body style="background-color: rgb(140, 154, 168);">
-        <form action="/" method="POST">
-            <label for="firstName"> First Name </label>
-            <input type="text" id="firstName" name="firstName" required>
-            <br><br>
-            <label for="lastName"> Last Name </label>
-            <input type="text" id="lastName" name="lastName" required>
+        <form action="/new" method="POST">
+            <label for="username"> Name </label>
+            <input type="text" id="username" name="username" required>
             <br><br>
             <button type="submit"> Submit </button>
         </form>
