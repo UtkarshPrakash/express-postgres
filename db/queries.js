@@ -6,10 +6,11 @@ async function getAllUsernames() {
 }
 
 async function getSpecificUsers(searchTerm) {
-    await pool.query(`
+    const { rows } = await pool.query(`
         SELECT * FROM usernames
         WHERE username ilike ($1);
-    `, [`%${searchTerm}%`])
+    `, [`%${searchTerm}%`]);
+    return rows;
 }
 
 async function insertUsername(username) {

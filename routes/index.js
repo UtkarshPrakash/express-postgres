@@ -4,14 +4,15 @@ const db = require("../db/queries");
 
 router.get("/", async (req, res) => {
     const searchTerm = req.query.search;
+    let usernames;
     if (searchTerm) {
         console.log("Searched for ", searchTerm);
         // have those usernames only
-        const usernames = await db.getSpecificUsers(searchTerm);
+        usernames = await db.getSpecificUsers(searchTerm);
     } else {
         // have all the usernames
         console.log("Getting all usernames");
-        const usernames = await db.getAllUsernames();
+        usernames = await db.getAllUsernames();
     }
     const names = usernames.map(user => user.username);
     res.render("index", {
